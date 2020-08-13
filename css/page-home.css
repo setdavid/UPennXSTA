@@ -1,0 +1,195 @@
+/********** General **********/
+
+/********** Jumbotron **********/
+
+.jumbotron-frame {
+    min-height: 100vh;
+    height: 100vh;
+}
+
+.jumbotron-text-container {
+    min-height: 100vh;
+    height: 100vh;
+}
+
+.slideshow-jumbotron-collage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.slideshow-jumbotron-collage>div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 1;
+    transition-property: opacity;
+}
+
+/********** Conatiner 1 **********/
+
+#who-we-are-img {
+    background-image: url("../img/group_picture1.jpg");
+    height: 100%;
+}
+
+#symbol-group {
+    margin-top: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 3px solid var(--theme-color-1);
+    border-bottom: 3px solid var(--theme-color-1);
+}
+
+#main-content #upenn-img {
+    min-height: 150px;
+    background-image: url("../img/upenn-symbol.png");
+    background-size: contain;
+}
+
+#sta-img {
+    min-height: 150px;
+    background-image: url("../img/sta-symbol-trans.png");
+    background-size: contain;
+}
+
+#main-content #times {
+    text-align: center;
+    padding: 0;
+}
+
+/********** Conatiner 2 **********/
+
+#container-2 {
+    position: relative;
+}
+
+#container-2-background-1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 900px;
+    background-color: rgb(0, 71, 133, 1);
+    clip-path: polygon(0 50%, 100% 0, 100% 100%, 0% 100%);
+}
+
+#container-2-background-2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 900px;
+    background-color: var(--theme-color-2);
+    clip-path: polygon(0 0, 0% 100%, 100% 100%);
+}
+
+.we-are {
+    justify-content: center;
+}
+
+.we-are>div>div {
+    position: relative;
+}
+
+.we-are>div>div>div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.we-are>div>div>div>div {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    max-width: 80%;
+    /* width: 100%; */
+    font-size: 2.5rem;
+    border-bottom: 3px solid white;
+    z-index: 70;
+    /* background-color: rgb(0, 0, 0, 0.6); */
+}
+
+.we-are>div:nth-child(2) {
+    transition-delay: 0.5s;
+}
+
+.we-are>div:nth-child(3) {
+    transition-delay: 1s;
+}
+
+#middle-schoolers-img {
+    background-image: url("../img/middle-schoolers.JPG");
+}
+
+#high-schoolers-img {
+    background-image: url("../img/high-schoolers.jpg");
+}
+
+#college-students-img {
+    background-image: url("../img/college-students.jpg");
+}
+
+#we-are-2.we-are>div, #we-are-3.we-are>div {
+    padding-top: 30px;
+}
+
+#parents-img {
+    background-image: url("../img/parents1.jpg");
+}
+
+#educators-img {
+    background-image: url("../img/educators1.JPG");
+}
+
+#community-img {
+    background-image: url("../img/park_group1.jpg");
+}
+
+/********** Conatiner 3 **********/
+
+#container-3>.row>div {
+    text-align: center;
+}
+
+#container-3 .off-white-background {
+    padding: 50px 30px 50px 30px;
+}
+
+#container-3 .off-white-background i {
+    margin-bottom: 20px;
+}
+
+#container-3 .off-white-background div {
+    margin-top: 30px;
+    padding: 10px 10px 10px 10px;
+}
+
+#container-3 .off-white-background div a {
+    border: 3px solid var(--theme-color-2);
+    background-color: rgb(5, 125, 130, 0.3);
+    font-weight: 600;
+    margin-top: 20px;
+    padding: 10px 10px 10px 10px;
+}
+
+#current-projects-img {
+    background-image: url("../img/wall_art1.jpg");
+}

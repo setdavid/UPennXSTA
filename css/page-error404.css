@@ -1,0 +1,13 @@
+#main-content {
+    justify-content: center;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.navbar {
+    display: none;
+}
+
+#footer {
+    display: none;
+}

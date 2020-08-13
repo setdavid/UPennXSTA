@@ -1,0 +1,29 @@
+.jumbotron-image {
+    background-image: url("../img/about-us.JPG");
+}
+
+.timeline-fluid {
+    background-color: inherit;
+    position: relative;
+}
+
+.timeline-fluid::after {
+    position: absolute;
+    top: 99%;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "";
+    width: 35vw;
+    height: 40px;
+    background-color: inherit;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    z-index: 100;
+}
+
+.timeline-fluid>.container>.row>div>h2 {
+    padding-top: 20px;
+}
+
+#year-2014-1 {
+    background-image: url("../img/women_backyard1.jpg");
+}
