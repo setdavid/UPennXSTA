@@ -41,6 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
             }).then(text => {
                 document.querySelector("#main-content").innerHTML = text;
                 jsUtils.refresh();
+            }).
+            catch((error) => {
+                console.log("Status - JS failed: " + error);
+                scriptChange("js/page-null.js");
             });
 
         window.scrollTo(0, 0);
@@ -55,6 +59,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.log("Status - CSS failed");
                     cssChange("css/page-null.css");
                 }
+            }).
+            catch((error) => {
+                console.log("Status - JS failed: " + error);
+                scriptChange("js/page-null.js");
             });
 
         var requestUrlJS = "js/page-" + page + ".js";
@@ -67,6 +75,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.log("Status - JS failed");
                     scriptChange("js/page-null.js");
                 }
+            }).
+            catch((error) => {
+                console.log("Status - JS failed: " + error);
+                scriptChange("js/page-null.js");
             });
     }
 
