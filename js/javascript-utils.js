@@ -45,7 +45,7 @@
         }
     }
 
-    console.log($(".jumbotron-frame").length);
+    // console.log($(".jumbotron-frame").length);
     if ($(".jumbotron-frame").length) {
         jsUtils.navBarChangeColors();
     }

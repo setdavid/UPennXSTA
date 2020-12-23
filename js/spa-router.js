@@ -31,10 +31,10 @@ document.addEventListener("DOMContentLoaded", function () {
         fetch(requestUrlHTML)
             .then((response) => {
                 if (response.ok) {
-                    console.log("Status - HTML true");
+                    console.log("Status - HTML true: " + page);
                     return response.text();
                 } else {
-                    console.log("Status - HTML failed");
+                    console.log("Status - HTML failed: " + page);
                     navTo("error404");
                     return "";
                 }
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }).
             catch((error) => {
                 console.log("Status - JS failed: " + error);
-                scriptChange("js/page-null.js");
+                scriptChange("js/page-error404.js");
             });
 
         window.scrollTo(0, 0);
@@ -53,32 +53,32 @@ document.addEventListener("DOMContentLoaded", function () {
         fetch(requestUrlCSS)
             .then((response) => {
                 if (response.ok) {
-                    console.log("Status - CSS true");
+                    console.log("Status - CSS true: " + page);
                     cssChange(requestUrlCSS);
                 } else {
-                    console.log("Status - CSS failed");
-                    cssChange("css/page-null.css");
+                    console.log("Status - CSS failed: " + page);
+                    cssChange("css/page-error404.css");
                 }
             }).
             catch((error) => {
                 console.log("Status - JS failed: " + error);
-                scriptChange("js/page-null.js");
+                scriptChange("js/page-error404.js");
             });
 
         var requestUrlJS = "js/page-" + page + ".js";
         fetch(requestUrlJS)
             .then((response) => {
                 if (response.ok) {
-                    console.log("Status - JS true");
+                    console.log("Status - JS true: " + page);
                     scriptChange(requestUrlJS);
                 } else {
-                    console.log("Status - JS failed");
-                    scriptChange("js/page-null.js");
+                    console.log("Status - JS failed: " + page);
+                    scriptChange("js/page-error404.js");
                 }
             }).
             catch((error) => {
                 console.log("Status - JS failed: " + error);
-                scriptChange("js/page-null.js");
+                scriptChange("js/page-error404.js");
             });
     }
 

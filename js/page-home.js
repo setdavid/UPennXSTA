@@ -43,7 +43,7 @@
         if (!pageHome.runScript) {
             return;
         } else {
-            console.log("index: " + index);
+            // console.log("index: " + index);
             window.setTimeout(function () {
                 $("#slideshow-jumbotron-image-" + index).css("opacity", "0");
                 window.setTimeout(function () {
