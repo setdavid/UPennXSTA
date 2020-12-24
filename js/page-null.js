@@ -1,3 +1,3 @@
 (function (global) {
-    console.log("error js");
+    console.log("null js");
 })(window);
