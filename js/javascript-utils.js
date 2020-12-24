@@ -90,7 +90,7 @@
         }
 
         for (let elem of jsUtils.canFade) {
-            // console.log(jsUtils.canFade.size);
+            console.log(jsUtils.canFade.size);
             fadeIn(elem);
         }
     });

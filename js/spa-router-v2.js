@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         console.log("NAVTO PAGE: " + page);
 
-        var requestUrlHTML = "pages/page-" + page + ".html";
+        var requestUrlHTML = "pages/" + page + ".html";
         fetch(requestUrlHTML)
             .then((response) => {
                 if (response.ok) {
@@ -35,64 +35,68 @@ document.addEventListener("DOMContentLoaded", function () {
                     return response.text();
                 } else {
                     console.log("Status - HTML failed: " + page);
-                    navTo("error404");
-                    return "";
+                    return "navTo(error404)";
                 }
             }).then((text) => {
-                document.querySelector("#main-content").innerHTML = text;
+                if (text != "navTo(error404)") {
+                    document.querySelector("#main-content").innerHTML = text;
 
-                var requestUrlCSS = "css/page-null.css";
-                var requestUrlJS = "js/page-null.js";
+                    jsUtils.refresh();
 
-                console.log("resultCSS: " + ((text.indexOf("<style>") != -1) && (text.indexOf("</style>") != -1)));
-                console.log("resultJS: " + ((text.indexOf("<script>") != -1) && (text.indexOf("</script>") != -1)));
+                    var requestUrlCSS = "css/null.css";
+                    var requestUrlJS = "js/null.js";
 
-                if ((text.indexOf("<style>") != -1) && (text.indexOf("</style>") != -1)) {
-                    requestUrlCSS = "css/page-" + page + ".css";
+                    console.log("resultCSS: " + ((text.indexOf("<style>") != -1) && (text.indexOf("</style>") != -1)));
+                    console.log("resultJS: " + ((text.indexOf("<script>") != -1) && (text.indexOf("</script>") != -1)));
+
+                    if ((text.indexOf("<style>") != -1) && (text.indexOf("</style>") != -1)) {
+                        requestUrlCSS = "css/" + page + ".css";
+                    }
+
+                    if ((text.indexOf("<script>") != -1) && (text.indexOf("</script>") != -1)) {
+                        requestUrlJS = "js/" + page + ".js";
+                    }
+
+                    fetch(requestUrlCSS)
+                        .then((response) => {
+                            if (response.ok) {
+                                console.log("Status - CSS true: " + requestUrlCSS);
+                                cssChange(requestUrlCSS);
+                            } else {
+                                console.log("Status - CSS failed: " + page);
+                                cssChange("css/null.css");
+                            }
+                        }).
+                        catch((error) => { });
+
+                    fetch(requestUrlJS)
+                        .then((response) => {
+                            if (response.ok) {
+                                console.log("Status - JS true: " + requestUrlJS);
+                                scriptChange(requestUrlJS);
+                            } else {
+                                console.log("Status - JS failed: " + page);
+                                scriptChange("js/null.js");
+                            }
+                        }).
+                        catch((error) => { });
+                } else {
+                    navTo("error404");
                 }
-
-                if ((text.indexOf("<script>") != -1) && (text.indexOf("</script>") != -1)) {
-                    requestUrlJS = "js/page-" + page + ".js";
-                }
-
-                fetch(requestUrlCSS)
-                    .then((response) => {
-                        if (response.ok) {
-                            console.log("Status - CSS true: " + requestUrlCSS);
-                            cssChange(requestUrlCSS);
-                        } else {
-                            console.log("Status - CSS failed: " + page);
-                            cssChange("css/page-null.css");
-                        }
-                    }).
-                    catch((error) => { });
-
-                fetch(requestUrlJS)
-                    .then((response) => {
-                        if (response.ok) {
-                            console.log("Status - JS true: " + requestUrlJS);
-                            scriptChange(requestUrlJS);
-                        } else {
-                            console.log("Status - JS failed: " + page);
-                            scriptChange("js/page-null.js");
-                        }
-                    }).
-                    catch((error) => { });
-
-                jsUtils.refresh();
             }).
             catch((error) => {
-                console.log("Status - CSS caught error: " + page);
-                cssChange("css/page-null.css");
-                console.log("Status - JS caught error: " + error);
-                scriptChange("js/page-error404.js");
+                // console.log("Status - CSS caught error: " + page);
+                // cssChange("css/error404.css");
+                // console.log("Status - JS caught error: " + error);
+                // scriptChange("js/null.js");
             });
 
         window.scrollTo(0, 0);
     }
 
     function scriptChange(requestUrl) {
-        $("script[src*='page']").remove();
+        // $("script[src*='page']").remove();
+        $("body > script:nth-last-child(2)").remove();
         var newScript = document.createElement("script");
         newScript.src = requestUrl;
         document.body.appendChild(newScript);
