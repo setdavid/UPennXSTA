@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var hashLocationOnReady = window.location.hash;
     console.log("onready: " + hashLocationOnReady.length);
     if (hashLocationOnReady.length === 0) {
-        window.location.hash = "#home"
+        window.location.hash = "#/home";
     } else {
         var pageOnReady = hashToPage(window.location.hash);
         navTo(pageOnReady);
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function hashToPage(hashLocation) {
-        var page = (hashLocation.slice(1)).replace(/[/]/g, "-");
+        var page = (hashLocation.slice(2)).replace(/[/]/g, "-");
         console.log("-----------HashLocation: " + hashLocation);
         console.log("Page: " + page);
         return page;
