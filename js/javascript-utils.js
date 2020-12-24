@@ -5,6 +5,7 @@
         var newScript = document.createElement("script");
         newScript.src = "js/javascript-utils.js";
         document.body.appendChild(newScript);
+
         console.log("refreshed!");
     };
 
@@ -49,12 +50,32 @@
     if ($(".jumbotron-frame").length) {
         jsUtils.navBarChangeColors();
     }
-})(window);
-
-document.addEventListener("DOMContentLoaded", function () {
 
     $(".navbar-toggler").off();
     $(".navbar-toggler").on("click", toggleNavSlider);
+
+    jsUtils.canFade = new Set();
+
+    var fadeLefts = document.getElementsByClassName("fade-in-left");
+    var fadeRights = document.getElementsByClassName("fade-in-right");
+    var fadeUps = document.getElementsByClassName("fade-in-up");
+    var fadePopouts = document.getElementsByClassName("fade-in-popout");
+
+    for (var i = 0; i < fadeLefts.length; i++) {
+        jsUtils.canFade.add(fadeLefts[i]);
+    }
+
+    for (var j = 0; j < fadeRights.length; j++) {
+        jsUtils.canFade.add(fadeRights[j]);
+    }
+
+    for (var l = 0; l < fadeUps.length; l++) {
+        jsUtils.canFade.add(fadeUps[l]);
+    }
+
+    for (var k = 0; k < fadePopouts.length; k++) {
+        jsUtils.canFade.add(fadePopouts[k]);
+    }
 
     $(window).off();
     $(window).on("scroll", function () {
@@ -68,25 +89,9 @@ document.addEventListener("DOMContentLoaded", function () {
             fadePassNavbar(fadePassNavbarVars[m]);
         }
 
-        var fadeLefts = document.getElementsByClassName("fade-in-left");
-        var fadeRights = document.getElementsByClassName("fade-in-right");
-        var fadeUps = document.getElementsByClassName("fade-in-up");
-        var fadePopouts = document.getElementsByClassName("fade-in-popout");
-
-        for (var i = 0; i < fadeLefts.length; i++) {
-            fadeIn(fadeLefts[i]);
-        }
-
-        for (var j = 0; j < fadeRights.length; j++) {
-            fadeIn(fadeRights[j]);
-        }
-
-        for (var l = 0; l < fadeUps.length; l++) {
-            fadeIn(fadeUps[l]);
-        }
-
-        for (var k = 0; k < fadePopouts.length; k++) {
-            fadeIn(fadePopouts[k]);
+        for (let elem of jsUtils.canFade) {
+            // console.log(jsUtils.canFade.size);
+            fadeIn(elem);
         }
     });
 
@@ -118,6 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (executeFade) {
                 elem.classList.toggle("fade-in-show");
+                jsUtils.canFade.delete(elem);
             }
 
             // else if (!isVisible && elem.classList.contains("fade-in-show")) {
@@ -143,4 +149,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     }
-});
+})(window);
+
+// // document.addEventListener("DOMContentLoaded", function () {
+//     console.log("complete dom");
+// });
