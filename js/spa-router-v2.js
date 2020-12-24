@@ -41,8 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (text != "navTo(error404)") {
                     document.querySelector("#main-content").innerHTML = text;
 
-                    jsUtils.refresh();
-
                     var requestUrlCSS = "css/null.css";
                     var requestUrlJS = "js/null.js";
 
@@ -95,6 +93,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function scriptChange(requestUrl) {
+        jsUtils.refresh();
+
         // $("script[src*='page']").remove();
         $("body > script:nth-last-child(2)").remove();
         var newScript = document.createElement("script");
