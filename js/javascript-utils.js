@@ -20,6 +20,23 @@
         navBarChangeColors();
     };
 
+    jsUtils.scrollTo = function (id) {
+        let elem = document.querySelector(id);
+        if (elem != null) {
+            // let topTarget = elem.getBoundingClientRect().top;
+            let targetLocation = elem.getBoundingClientRect().top -
+                document.querySelector("#main-content").getBoundingClientRect().top -
+                document.querySelector(".navbar").getBoundingClientRect().bottom;
+            // console.log("topTarget: " + topTarget);
+            // console.log("Main content: " + document.querySelector("#main-content").getBoundingClientRect().top);
+            window.scrollTo({
+                top: targetLocation,
+                left: 0,
+                behavior: "smooth"
+            });
+        }
+    }
+
     global.jsUtils = jsUtils;
 
     function navBarChangeColors() {
@@ -110,15 +127,16 @@
         if (!elem.classList.contains("fade-in-show")) {
             var clientRect = elem.getBoundingClientRect();
             var elemTop = clientRect.top;
-            var elemBottom = clientRect.bottom;
+            // var elemBottom = clientRect.bottom;
             var navbarBottom = document.querySelector(".navbar").getBoundingClientRect().bottom;
             var elem50Height = elemTop + (0.5 * clientRect.height);
 
             //    console.log("top: " + elemTop);
             //    console.log("bottom: " + elemBottom);
 
-            var isVisible = (elemTop >= navbarBottom && elemTop <= window.innerHeight) || (elemBottom >= navbarBottom && elemBottom <= window.innerHeight) ||
-                (navbarBottom >= elemTop && navbarBottom <= elemBottom) || (window.innerHeight >= elemTop && window.innerHeight <= elemBottom);
+            // var isVisible = (elemTop >= navbarBottom && elemTop <= window.innerHeight) || (elemBottom >= navbarBottom && elemBottom <= window.innerHeight) ||
+            //     (navbarBottom >= elemTop && navbarBottom <= elemBottom) || (window.innerHeight >= elemTop && window.innerHeight <= elemBottom);
+
             var executeFade = elem50Height >= navbarBottom && elem50Height <= window.innerHeight;
 
             if (executeFade) {

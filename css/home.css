@@ -43,6 +43,20 @@
     transition-property: opacity;
 }
 
+.scroll-learn-more {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-bottom: 20px;
+    color: white;
+    text-align: center;
+    z-index: 100;
+    font-weight: normal;
+    font-size: 1.2rem;
+}
+
 /********** Conatiner 1 **********/
 
 #who-we-are-img {
