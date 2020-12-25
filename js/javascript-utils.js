@@ -76,22 +76,27 @@
     var fadeLefts = document.getElementsByClassName("fade-in-left");
     var fadeRights = document.getElementsByClassName("fade-in-right");
     var fadeUps = document.getElementsByClassName("fade-in-up");
+    var fadeDowns = document.getElementsByClassName("fade-in-down");
     var fadePopouts = document.getElementsByClassName("fade-in-popout");
 
-    for (var i = 0; i < fadeLefts.length; i++) {
+    for (let i = 0; i < fadeLefts.length; i++) {
         jsUtils.canFade.add(fadeLefts[i]);
     }
 
-    for (var j = 0; j < fadeRights.length; j++) {
-        jsUtils.canFade.add(fadeRights[j]);
+    for (let i = 0; i < fadeRights.length; i++) {
+        jsUtils.canFade.add(fadeRights[i]);
     }
 
-    for (var l = 0; l < fadeUps.length; l++) {
-        jsUtils.canFade.add(fadeUps[l]);
+    for (let i = 0; i < fadeUps.length; i++) {
+        jsUtils.canFade.add(fadeUps[i]);
     }
 
-    for (var k = 0; k < fadePopouts.length; k++) {
-        jsUtils.canFade.add(fadePopouts[k]);
+    for (let i = 0; i < fadeDowns.length; i++) {
+        jsUtils.canFade.add(fadeDowns[i]);
+    }
+
+    for (let i = 0; i < fadePopouts.length; i++) {
+        jsUtils.canFade.add(fadePopouts[i]);
     }
 
     $(window).off();
@@ -124,12 +129,14 @@
     }
 
     function fadeIn(elem) {
+        let portionElemVisible = 0.70;
+
         if (!elem.classList.contains("fade-in-show")) {
             var clientRect = elem.getBoundingClientRect();
             var elemTop = clientRect.top;
             // var elemBottom = clientRect.bottom;
             var navbarBottom = document.querySelector(".navbar").getBoundingClientRect().bottom;
-            var elem50Height = elemTop + (0.5 * clientRect.height);
+            var elem50Height = elemTop + (portionElemVisible * clientRect.height);
 
             //    console.log("top: " + elemTop);
             //    console.log("bottom: " + elemBottom);

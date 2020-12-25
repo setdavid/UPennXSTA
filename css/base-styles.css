@@ -475,6 +475,16 @@ div.fade-in-up {
     transition-timing-function: cubic-bezier(0.2, 1, 0.5, 1);
 }
 
+div.fade-in-down {
+    overflow-x: hidden;
+    position: relative;
+    top: -100px;
+    opacity: 0;
+    transition-property: top, opacity;
+    transition-duration: 3s;
+    transition-timing-function: cubic-bezier(0.2, 1, 0.5, 1);
+}
+
 div.fade-in-popout {
     overflow-x: hidden;
     position: relative;
