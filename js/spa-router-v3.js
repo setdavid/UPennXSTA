@@ -13,10 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (json != null) {
                 pathsJSON = json;
 
-                // console.log("#/home/test1/test2/test3: " + pathExists(pathToArr(pageToPath("#/home/test1/test2/test3"))));
-                // console.log("#/home/test2: " + pathExists(pathToArr(pageToPath("#/home/test2"))));
-                // console.log("#/home: " + pathExists(pathToArr(pageToPath("#/home"))));
-
                 window.addEventListener("hashchange", function () {
                     navTo(window.location.hash);
                 });

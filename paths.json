@@ -2,8 +2,16 @@
     "home": {
         "CSS": true,
         "JS": true
-    }, 
+    },
     "error404": {
+        "CSS": true,
+        "JS": false
+    },
+    "about-us": {
+        "CSS": true,
+        "JS": false
+    },
+    "our-works": {
         "CSS": true,
         "JS": false
     }
