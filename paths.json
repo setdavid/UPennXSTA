@@ -1,0 +1,10 @@
+{
+    "home": {
+        "CSS": true,
+        "JS": true
+    }, 
+    "error404": {
+        "CSS": true,
+        "JS": false
+    }
+}
