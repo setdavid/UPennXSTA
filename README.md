@@ -1,3 +1,3 @@
 # UPennXSTA
 
-Original Vanilla Javascript Webiste design
+Original Vanilla Javascript Website design
